@@ -1,3 +1,64 @@
-
 @import 'bourbon/bourbon';
+$visual-grid: true;
 @import 'neat/neat';
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+$mobile: new-breakpoint(max-width 500px 4);
+$tablet: new-breakpoint(max-width 840px 6);
+
+
+$celestialblue: rgb(71, 163, 218);
+
+
+/* header, .content {
+  max-width: 1200px;
+  margin: 0 auto;
+} */
+
+.content {
+    @include outer-container;
+    height: 600px;
+}
+
+.image {
+  @include span-columns(4);
+  @include omega(3n);
+  font-size:20px;
+  color:$celestialblue;
+  font-size:12px;
+  text-align:center;
+
+  img {
+    max-width: 100%;
+  }
+
+  @include media($tablet){
+  @include span-columns(6);
+
+    .text {
+      display:inline-block;
+      color:$celestialblue;
+      max-width:30%;
+      vertical-align:top;
+      margin-bottom:50px;
+      padding-left:25px;
+      max-height:1000px;
+      text-align:left;
+    }
+  }
+
+  @include media($mobile) {
+    @include span-columns(4);
+      .text {
+        max-width:75%;
+        margin-bottom:50px;
+        text-align:center;
+      }
+  }
+
+
+
+}
